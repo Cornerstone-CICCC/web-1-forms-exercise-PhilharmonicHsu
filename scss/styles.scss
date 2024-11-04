@@ -1,3 +1,8 @@
+@mixin inputFrame($color: lightgray) {
+  border: 1px solid $color;
+  border-radius: 5px;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
@@ -11,4 +16,109 @@ form {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-width: 600px;
   margin: 20px auto;
+
+  fieldset {
+    @include inputFrame();
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+    legend {
+      @include inputFrame();
+      padding: 0 .5rem;
+    }
+  }
+
+  #personal_information {
+    input {
+      @include inputFrame();
+
+      width: 100%;
+      line-height: 2rem;
+      margin-top: .8rem;
+      margin-bottom: .8rem;
+    }
+
+    input[type="date"] {
+      width: calc(100% - .5rem);
+      padding-right: .5rem;
+    }
+  }
+
+  #preferences {
+    input {
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    #favorite_color {
+      @include inputFrame();
+
+      width: 100%;
+      height: 2.5rem;
+      line-height: 3rem;
+      padding: 5px;
+    }
+
+    select {
+      width: 30%;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+      height: 2rem;
+    }
+  }
+
+  #contact_preferences {
+    label {
+      display: block;
+      margin-top: .5rem;
+      margin-bottom: .5rem;
+    }
+
+    #contact_method {
+      @include inputFrame();
+
+      width: 100%;
+      height: 2rem;
+    }
+
+    input[type=checkbox] {
+      margin-bottom: 1rem;
+    }
+  }
+
+  // gender_preferences
+  #female {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+  }
+
+  #more_information {
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    textarea {
+      @include inputFrame();
+
+      width: 100%;
+      height: 5rem;
+    }
+  }
+
+  #upload div {
+    @include inputFrame();
+
+    padding: .5rem;
+    margin-top: .5rem;
+  }
+
+  #submission input {
+    @include inputFrame(#007BFF);
+
+    background-color: #007BFF;
+    color: white;
+    padding: 0.5rem 1rem;
+  }
 }
